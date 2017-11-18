@@ -16,7 +16,7 @@ router.get('/new', function(req, res) {
 });
 
 router.post('/new', function(req, res) {
-    var team = new Team(req.body);
+    var team = new Team(Object.assign({}, req.body));
 
     team.saveAll({locations: true}).then(function(newTeam) {
         var lat = process.env.LAT;
